@@ -52,6 +52,10 @@ class AuthController extends Controller
                 "token" => $token->plainTextToken,
                 "user_id" => $user->id
             ], 200);
+        } else {
+            return response([
+                "message" => "Invalid email or password"
+            ], 400);
         }
     }
 }
