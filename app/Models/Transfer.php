@@ -3,13 +3,13 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\Pivot;
 
-class UserModules extends Model
+class Transfer extends Model
 {
     protected $fillable = [
         "user_id",
-        "module_id",
-        "active"
+        "receiver_id",
+        "amount",
+        "status"
     ];
 }
