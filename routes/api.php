@@ -6,7 +6,9 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ShortenController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SessionTimeController;
 use App\Http\Controllers\UserModulesController;
+use App\Models\SessionTime;
 use App\Models\UserModules;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -43,6 +45,9 @@ Route::middleware("auth:sanctum")->group(function () {
         Route::get("/products", [ProductController::class, "index"]);
         Route::post("/orders", [OrderController::class, "store"]);
         Route::post("/products/{id}/restock", [ProductController::class, "restock"]);
+
+        //route for sessions
+        Route::post("/sessions/start", [SessionTimeController::class, "store"]);
     });
 });
 
