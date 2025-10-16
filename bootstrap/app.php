@@ -14,7 +14,9 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware): void {
         //
-        $middleware->append(CheckModuleActive::class);
+        $middleware->alias([
+            "checkModule" => CheckModuleActive::class
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //

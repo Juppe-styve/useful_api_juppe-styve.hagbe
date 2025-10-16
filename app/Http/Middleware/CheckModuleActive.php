@@ -17,7 +17,7 @@ class CheckModuleActive
     public function handle(Request $request, Closure $next): Response
     {
         $module = UserModules::where(["user_id" => auth()->id(), "module_id" => $request->module_id])->first();
-        if ($module->active) {
+        if ($module && $module->active) {
             return $next($request);
         }
         return response([
