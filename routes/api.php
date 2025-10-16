@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ModuleController;
 use App\Http\Controllers\ShortenController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserModulesController;
 use App\Models\UserModules;
 use Illuminate\Http\Request;
@@ -22,11 +23,18 @@ Route::middleware("auth:sanctum")->group(function () {
     Route::post("/modules/{id}/activate", [UserModulesController::class, "activate"]);
     Route::post("/modules/{id}/deactivate", [UserModulesController::class, "deactivate"]);
 
-    //route for shorten Url
+
     Route::middleware("checkModule")->group(function () {
+        //route for shorten Url
         Route::post("/shorten", [ShortenController::class, "store"]);
         Route::get("/links", [ShortenController::class, "index"]);
         Route::delete("/links/{id}", [ShortenController::class, "destroy"]);
+
+        //route for wallet
+        Route::get("/wallet", [UserController::class, "wallet"]);
+        Route::post("/wallet/transfer", [UserController::class, "transfert"]);
+        Route::post("/wallet/topup", [UserController::class, "topUp"]);
+        Route::get("/wallet/transactions", [UserController::class, "getTransactions"]);
     });
 });
 
