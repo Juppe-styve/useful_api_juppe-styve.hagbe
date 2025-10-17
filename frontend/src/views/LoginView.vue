@@ -29,7 +29,7 @@ const handleLogin = async () => {
   }
   const data = await userStore.login(email.value, password.value)
   if (data) {
-    //redirect to dash
+    router.push('/dashboard')
   }
 }
 </script>

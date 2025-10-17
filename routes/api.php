@@ -26,7 +26,7 @@ Route::middleware("auth:sanctum")->group(function () {
     Route::get("/modules", [ModuleController::class, "index"]);
     Route::post("/modules/{id}/activate", [UserModulesController::class, "activate"]);
     Route::post("/modules/{id}/deactivate", [UserModulesController::class, "deactivate"]);
-
+    Route::get("/user/modules", [UserModulesController::class, 'getUserModules']);
 
     Route::middleware("checkModule")->group(function () {
         //route for shorten Url
