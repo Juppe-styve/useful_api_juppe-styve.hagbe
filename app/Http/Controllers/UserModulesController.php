@@ -50,4 +50,12 @@ class UserModulesController extends Controller
             "message" => "Module deactivated"
         ], 200);
     }
+
+    public function getUserModules()
+    {
+        $userModules = UserModules::where(['user_id' => auth()->id()])->get();
+        return response([
+            $userModules
+        ], 200);
+    }
 }
