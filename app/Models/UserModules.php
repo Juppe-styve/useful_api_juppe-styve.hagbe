@@ -12,4 +12,8 @@ class UserModules extends Model
         "module_id",
         "active"
     ];
+    public function module()
+    {
+        return $this->belongsTo(Module::class);
+    }
 }
