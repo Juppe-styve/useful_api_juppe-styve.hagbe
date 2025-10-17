@@ -40,7 +40,7 @@ export const useModuleStore = defineStore(
         return
       } else {
         const data = await response.json()
-        user_modules.value = data
+        user_modules.value = await data
       }
     }
 

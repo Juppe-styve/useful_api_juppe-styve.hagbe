@@ -16,21 +16,9 @@
 </template>
 
 <script setup>
-import { computed, defineProps, onMounted } from 'vue'
+import { computed, defineProps } from 'vue'
 const props = defineProps({
   module: Object,
   user_modules: Object,
-})
-const moduleState = computed(() => {
-  const moduleCheck = props.user_modules.filter((v) => v.module_id == props.module.id)
-  console.log(moduleCheck)
-  if (moduleCheck) {
-    if (moduleCheck.active) {
-      return true
-    }
-    return false
-  } else {
-    return false
-  }
 })
 </script>

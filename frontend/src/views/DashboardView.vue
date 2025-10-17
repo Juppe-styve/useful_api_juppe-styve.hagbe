@@ -4,7 +4,7 @@
     <SidebarComponent
       :is-open="sidebarOpen"
       @toggle="toggleSidebar"
-      :modules="modulesStore.modules"
+      :user_modules="modulesStore.user_modules"
     />
 
     <!-- Contenu principal -->
@@ -35,6 +35,7 @@
 
       <!-- Contenu principal -->
       <section class="p-6 flex-1 space-y-8">
+        <p>Listes des modules</p>
         <div class="grid grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4">
           <StatsCard
             :module="module"
