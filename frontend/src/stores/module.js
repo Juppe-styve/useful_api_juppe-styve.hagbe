@@ -43,6 +43,16 @@ export const useModuleStore = defineStore(
         user_modules.value = await data
       }
     }
+    const active = async (id) => {
+      const response = await fetch(`${API_BASE}/${id}/activate`, {
+        method: 'POST',
+        Authorization: `Bearer ${token}`,
+      })
+      if (!response.ok) {
+        return
+      } else {
+      }
+    }
 
     return {
       modules,
