@@ -55,7 +55,7 @@ class UserModulesController extends Controller
     {
         $userModules = UserModules::where(['user_id' => auth()->id()])->get();
         return response([
-            $userModules
+            $userModules->load("module")
         ], 200);
     }
 }

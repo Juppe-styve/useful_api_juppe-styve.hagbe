@@ -6,7 +6,7 @@
     ]"
   >
     <div class="flex items-center justify-between lg:block">
-      <h1 class="text-2xl font-bold tracking-wide">MODULES</h1>
+      <h1 class="text-2xl font-bold tracking-wide">MES MODULES</h1>
       <button
         @click="$emit('toggle')"
         class="lg:hidden text-white hover:text-red-400 focus:outline-none"
@@ -16,9 +16,9 @@
     </div>
 
     <nav class="flex text-sm flex-col space-y-3 mt-6">
-      <div v-for="module in modules">
+      <div v-for="module in user_modules[0]">
         <div class="flex hover:bg-slate-700 p-2 space-x-4 rounded-md text-gray-300">
-          <span class="">{{ module.name }}</span>
+          <span class="">{{ module.module.name }}</span>
         </div>
       </div>
     </nav>
@@ -28,7 +28,6 @@
 <script setup>
 const props = defineProps({
   isOpen: Boolean,
-  modules: Object,
   user_modules: Object,
 })
 </script>
